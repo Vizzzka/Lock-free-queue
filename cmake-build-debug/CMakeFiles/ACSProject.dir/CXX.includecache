@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/usach/CLionProjects/ACSProject/main.cpp
+iostream
+-
+atomic
+-
+chrono
+-
+thread
+-
+functional
+-
+queue
+-
+mutex
+-
+condition_variable
+-
+
