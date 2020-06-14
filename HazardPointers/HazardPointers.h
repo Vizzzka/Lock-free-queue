@@ -7,6 +7,7 @@
 
 #include <atomic>
 #include <thread>
+#include <functional>
 
 unsigned const max_hazard_pointers=100;
 struct hazard_pointer

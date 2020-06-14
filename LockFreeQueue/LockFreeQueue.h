@@ -11,7 +11,7 @@
 #include <iostream>
 
 template<typename T>
-class lock_free_queue {
+class lock_free_queue : public QueueInterface<T>{
 private:
 	struct node {
 		T data;

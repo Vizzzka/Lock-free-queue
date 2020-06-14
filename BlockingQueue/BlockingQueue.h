@@ -19,7 +19,7 @@ private:
 public:
 	BlockingQueue() {}
 
-	void push(T&& new_value) override
+	void push(const T& new_value) override
 	{
 		std::lock_guard<std::mutex> lk(mut);
 		data_queue.push(std::move(new_value));
