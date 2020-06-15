@@ -26,13 +26,7 @@ public:
 		data_cond.notify_one();
 	}
 
-	bool pop(T& value)
-	{
-		std::unique_lock<std::mutex> lk(mut);
-		data_cond.wait(lk,[this]{return !data_queue.empty();});
-		value=std::move(data_queue.front());
-		data_queue.pop();
-	}
+
 
 	T pop() override
 	{
@@ -43,7 +37,7 @@ public:
 		return res;
 	}
 
-	bool try_pop(T& value)
+	bool pop(T& value) override
 	{
 		std::lock_guard<std::mutex> lk(mut);
 		if(data_queue.empty())

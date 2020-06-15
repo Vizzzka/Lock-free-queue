@@ -15,7 +15,8 @@ class QueueInterface{
 public:
 
 	virtual void push(const T &val) = 0;
-	virtual T pop() = 0;
+	virtual bool pop (T& val) = 0;
+    virtual T pop () = 0;
 
 	virtual bool empty() const = 0;
 

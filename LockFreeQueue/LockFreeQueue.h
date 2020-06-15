@@ -11,7 +11,7 @@
 #include <iostream>
 
 template<typename T>
-class lock_free_queue : public QueueInterface<T>{
+class LockFreeQueue final: public QueueInterface<T>{
 private:
 	struct node {
 		T data;
@@ -22,24 +22,25 @@ private:
 		node(T const &data_) :
 				data(data_), next(nullptr) {}
 	public: void print() {
-			std::cout << data << "\n";
+			std::cout << (*next).data << "\n";
 		}
 	};
 
 	std::atomic<node *> head;
 	std::atomic<node *> tail;
 public:
-	lock_free_queue()
+	LockFreeQueue()
 	{
-		node * p = new node();
-		head.store( p, std::memory_order_release );
-		tail.store( p, std::memory_order_release );
+	    // dummy node
+		node * d = new node();
+		head.store( d, std::memory_order_release );
+		tail.store( d, std::memory_order_release );
 	}
-	void push(T const &data) {
+	void push(T const &data) override {
 		std::atomic<void *> &hp = get_hazard_pointer_for_current_thread();
 		node *old_tail = tail.load(std::memory_order_relaxed);
 		node *temp;
-		node * pNew = new node(data);
+		node * pNew = new node{data};
 		while(true) {
 			// put hazard pointer
 			do {
@@ -60,6 +61,7 @@ public:
 			}
 
 			node * n = nullptr;
+
 			// if tail next element is nullptr then we can add new node to old ptr
 			if (old_tail->next.compare_exchange_strong(
 					n, pNew, std::memory_order_release))
@@ -67,15 +69,18 @@ public:
 
 		}
 		// if tail was not changed before then we can add node to actuall tail
-		tail.compare_exchange_strong(old_tail, pNew, std::memory_order_acq_rel );
+		tail.compare_exchange_strong(old_tail, pNew, std::memory_order_acq_rel, std::memory_order_relaxed);
 		hp.store(nullptr); // free hazard pointer
+
 	}
 
-	bool pop() {
+	bool pop(T &val) override {
 		std::atomic<void *> &hp0 = get_hazard_pointer_for_current_thread();
 		std::atomic<void *> &hp1 = get_hazard_pointer_for_current_thread();
 		node *old_head = head.load();
-		while (true) {
+        node *next;
+
+        while (true) {
 			node *temp;
 			do {
 				temp = old_head;
@@ -85,7 +90,7 @@ public:
 
 
 			if (old_head != head.load(std::memory_order_acquire)) continue;
-			node * next = old_head->next.load(std::memory_order_acquire);
+			next = old_head->next.load(std::memory_order_acquire);
 			node * old_tail = tail.load(std::memory_order_relaxed);
 
 			do {
@@ -94,12 +99,22 @@ public:
 				old_head = head.load();
 			} while (old_head->next != temp);
 
+
 			if (old_head != head.load(std::memory_order_relaxed))
 				continue;
+
 			if (next == nullptr) {
-				// Очередь пуста
-				hp0.store(nullptr);
+				// queue is empty
+				// hp0.store(nullptr);
 				return false;
+			}
+
+			// we are dequeue head(dummy node problem)
+			node * t = tail.load(std::memory_order_acquire);
+			if (tail.load() == head.load()) {
+                tail.compare_exchange_strong( t, next,
+                                                 std::memory_order_release, std::memory_order_relaxed);
+                continue;
 			}
 
 			if (head == tail) {
@@ -108,11 +123,14 @@ public:
 				                              std::memory_order_release);
 				continue;
 			}
+
+
 			if ( head.compare_exchange_strong(old_head, next,
 			                                  std::memory_order_release)) {
 
 				if (outstanding_hazard_pointers_for(old_head)) {
 					reclaim_later(old_head);
+
 				} else {
 					delete old_head;
 				}
@@ -121,10 +139,30 @@ public:
 			}
 
 		}
-		// (*head).print();
+        // important we are returning next element after dummy node
+        val = next->data;
 		return true;
 
 	}
+
+	T pop() override {
+	    T res;
+	    pop(res);
+	    return res;
+	}
+
+    bool empty() const {
+	    return true;
+	}
+
+    ~LockFreeQueue() override {
+        node* tmp = head;
+        while(tmp) {
+            node* next = tmp->next;
+            delete tmp;
+            tmp = next;
+        }
+    }
 };
 
 

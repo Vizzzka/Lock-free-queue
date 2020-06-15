@@ -1,0 +1,19 @@
+[==========] Running 4 tests from 2 test cases.
+[----------] Global test environment set-up.
+[----------] 2 tests from PlaceholderName/ConcurrentQueueTest/0, where TypeParam = BlockingQueue<int>
+[ RUN      ] PlaceholderName/ConcurrentQueueTest/0.ShouldAdd
+[       OK ] PlaceholderName/ConcurrentQueueTest/0.ShouldAdd (33 ms)
+[ RUN      ] PlaceholderName/ConcurrentQueueTest/0.MPMC
+11999 [       OK ] PlaceholderName/ConcurrentQueueTest/0.MPMC (8668 ms)
+[----------] 2 tests from PlaceholderName/ConcurrentQueueTest/0 (8716 ms total)
+
+[----------] 2 tests from PlaceholderName/ConcurrentQueueTest/1, where TypeParam = LockFreeQueue<int>
+[ RUN      ] PlaceholderName/ConcurrentQueueTest/1.ShouldAdd
+[       OK ] PlaceholderName/ConcurrentQueueTest/1.ShouldAdd (25 ms)
+[ RUN      ] PlaceholderName/ConcurrentQueueTest/1.MPMC
+11999 [       OK ] PlaceholderName/ConcurrentQueueTest/1.MPMC (2477 ms)
+[----------] 2 tests from PlaceholderName/ConcurrentQueueTest/1 (2503 ms total)
+
+[----------] Global test environment tear-down
+[==========] 4 tests from 2 test cases ran. (11273 ms total)
+[  PASSED  ] 4 tests.
