@@ -1,0 +1,469 @@
+/usr/bin/valgrind --tool=helgrind  /home/vizka/CLionProjects/ACSProject/cmake-build-debug/tests --gtest_filter=ConcurrentQueueTest.*:ConcurrentQueueTest/*.*:*/ConcurrentQueueTest.*/*:*/ConcurrentQueueTest/*.* --gtest_color=no
+==2605== Helgrind, a thread error detector
+==2605== Copyright (C) 2007-2017, and GNU GPL'd, by OpenWorks LLP et al.
+==2605== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==2605== Command: /home/vizka/CLionProjects/ACSProject/cmake-build-debug/tests --gtest_filter=ConcurrentQueueTest.*:ConcurrentQueueTest/*.*:*/ConcurrentQueueTest.*/*:*/ConcurrentQueueTest/*.* --gtest_color=no
+==2605==
+Note: Google Test filter = ConcurrentQueueTest.*:ConcurrentQueueTest/*.*:*/ConcurrentQueueTest.*/*:*/ConcurrentQueueTest/*.*
+[==========] Running 4 tests from 2 test cases.
+[----------] Global test environment set-up.
+[----------] 2 tests from PlaceholderName/ConcurrentQueueTest/0, where TypeParam = BlockingQueue<int>
+[ RUN      ] PlaceholderName/ConcurrentQueueTest/0.ShouldAdd
+[       OK ] PlaceholderName/ConcurrentQueueTest/0.ShouldAdd (19 ms)
+[ RUN      ] PlaceholderName/ConcurrentQueueTest/0.MPMC
+11999 [       OK ] PlaceholderName/ConcurrentQueueTest/0.MPMC (802 ms)
+[----------] 2 tests from PlaceholderName/ConcurrentQueueTest/0 (828 ms total)
+
+[----------] 2 tests from PlaceholderName/ConcurrentQueueTest/1, where TypeParam = LockFreeQueue<int>
+[ RUN      ] PlaceholderName/ConcurrentQueueTest/1.ShouldAdd
+[       OK ] PlaceholderName/ConcurrentQueueTest/1.ShouldAdd (9 ms)
+[ RUN      ] PlaceholderName/ConcurrentQueueTest/1.MPMC
+==2605== ---Thread-Announcement------------------------------------------
+==2605==
+==2605== Thread #11 was created
+==2605==    at 0x572387E: clone (clone.S:71)
+==2605==    by 0x4E49EC4: create_thread (createthread.c:100)
+==2605==    by 0x4E49EC4: pthread_create@@GLIBC_2.2.5 (pthread_create.c:797)
+==2605==    by 0x4C36A27: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==2605==    by 0x511E994: std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==2605==    by 0x11A157: std::thread::thread<void (&)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long&, unsigned long&, std::reference_wrapper<LockFreeQueue<int> > >(void (&)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long&, unsigned long&, std::reference_wrapper<LockFreeQueue<int> >&&) (thread:126)
+==2605==    by 0x118A72: gtest_case_ConcurrentQueueTest_::MPMC<LockFreeQueue<int> >::TestBody() (tests.cpp:83)
+==2605==    by 0x148CE4: void testing::internal::HandleSehExceptionsInMethodIfSupported<testing::Test, void>(testing::Test*, void (testing::Test::*)(), char const*) (in /home/vizka/CLionProjects/ACSProject/cmake-build-debug/tests)
+==2605==    by 0x142E92: void testing::internal::HandleExceptionsInMethodIfSupported<testing::Test, void>(testing::Test*, void (testing::Test::*)(), char const*) (in /home/vizka/CLionProjects/ACSProject/cmake-build-debug/tests)
+==2605==    by 0x126FC9: testing::Test::Run() (in /home/vizka/CLionProjects/ACSProject/cmake-build-debug/tests)
+==2605==    by 0x1278FF: testing::TestInfo::Run() (in /home/vizka/CLionProjects/ACSProject/cmake-build-debug/tests)
+==2605==    by 0x127F89: testing::TestCase::Run() (in /home/vizka/CLionProjects/ACSProject/cmake-build-debug/tests)
+==2605==    by 0x12EE55: testing::internal::UnitTestImpl::RunAllTests() (in /home/vizka/CLionProjects/ACSProject/cmake-build-debug/tests)
+==2605==
+==2605== ---Thread-Announcement------------------------------------------
+==2605==
+==2605== Thread #10 was created
+==2605==    at 0x572387E: clone (clone.S:71)
+==2605==    by 0x4E49EC4: create_thread (createthread.c:100)
+==2605==    by 0x4E49EC4: pthread_create@@GLIBC_2.2.5 (pthread_create.c:797)
+==2605==    by 0x4C36A27: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==2605==    by 0x511E994: std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==2605==    by 0x11A157: std::thread::thread<void (&)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long&, unsigned long&, std::reference_wrapper<LockFreeQueue<int> > >(void (&)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long&, unsigned long&, std::reference_wrapper<LockFreeQueue<int> >&&) (thread:126)
+==2605==    by 0x118A72: gtest_case_ConcurrentQueueTest_::MPMC<LockFreeQueue<int> >::TestBody() (tests.cpp:83)
+==2605==    by 0x148CE4: void testing::internal::HandleSehExceptionsInMethodIfSupported<testing::Test, void>(testing::Test*, void (testing::Test::*)(), char const*) (in /home/vizka/CLionProjects/ACSProject/cmake-build-debug/tests)
+==2605==    by 0x142E92: void testing::internal::HandleExceptionsInMethodIfSupported<testing::Test, void>(testing::Test*, void (testing::Test::*)(), char const*) (in /home/vizka/CLionProjects/ACSProject/cmake-build-debug/tests)
+==2605==    by 0x126FC9: testing::Test::Run() (in /home/vizka/CLionProjects/ACSProject/cmake-build-debug/tests)
+==2605==    by 0x1278FF: testing::TestInfo::Run() (in /home/vizka/CLionProjects/ACSProject/cmake-build-debug/tests)
+==2605==    by 0x127F89: testing::TestCase::Run() (in /home/vizka/CLionProjects/ACSProject/cmake-build-debug/tests)
+==2605==    by 0x12EE55: testing::internal::UnitTestImpl::RunAllTests() (in /home/vizka/CLionProjects/ACSProject/cmake-build-debug/tests)
+==2605==
+==2605== ----------------------------------------------------------------
+==2605==
+==2605== Possible data race during read of size 8 at 0x37E2D0 by thread #11
+==2605== Locks held: none
+==2605==    at 0x1145A0: std::atomic<std::thread::id>::compare_exchange_strong(std::thread::id&, std::thread::id, std::memory_order, std::memory_order) (atomic:323)
+==2605==    by 0x1135E0: std::atomic<std::thread::id>::compare_exchange_strong(std::thread::id&, std::thread::id, std::memory_order) (atomic:340)
+==2605==    by 0x11281E: hp_owner::hp_owner() (HazardPointers.h:33)
+==2605==    by 0x111472: get_hazard_pointer_for_current_thread() (HazardPointers.h:57)
+==2605==    by 0x11A306: LockFreeQueue<int>::push(int const&) (LockFreeQueue.h:40)
+==2605==    by 0x1116B7: (anonymous namespace)::addNumbersProducer(unsigned long, unsigned long, QueueInterface<int>&) (tests.cpp:27)
+==2605==    by 0x11B2C6: void std::__invoke_impl<void, void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > >(std::__invoke_other, void (*&&)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long&&, unsigned long&&, std::reference_wrapper<LockFreeQueue<int> >&&) (invoke.h:60)
+==2605==    by 0x11A07C: std::__invoke_result<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > >::type std::__invoke<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > >(void (*&&)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long&&, unsigned long&&, std::reference_wrapper<LockFreeQueue<int> >&&) (invoke.h:95)
+==2605==    by 0x11EFF0: decltype (__invoke((_S_declval<0ul>)(), (_S_declval<1ul>)(), (_S_declval<2ul>)(), (_S_declval<3ul>)())) std::thread::_Invoker<std::tuple<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > > >::_M_invoke<0ul, 1ul, 2ul, 3ul>(std::_Index_tuple<0ul, 1ul, 2ul, 3ul>) (thread:234)
+==2605==    by 0x11EEE6: std::thread::_Invoker<std::tuple<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > > >::operator()() (thread:243)
+==2605==    by 0x11EE23: std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > > > >::_M_run() (thread:186)
+==2605==    by 0x511E6DE: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==2605==
+==2605== This conflicts with a previous write of size 8 by thread #10
+==2605== Locks held: none
+==2605==    at 0x11366D: std::atomic<std::thread::id>::store(std::thread::id, std::memory_order) (atomic:239)
+==2605==    by 0x112934: hp_owner::~hp_owner() (HazardPointers.h:52)
+==2605==    by 0x56458AE: __call_tls_dtors (cxa_thread_atexit_impl.c:155)
+==2605==    by 0x4E496E8: start_thread (pthread_create.c:470)
+==2605==    by 0x572388E: clone (clone.S:95)
+==2605==  Address 0x37e2d0 is 16 bytes inside data symbol "hazard_pointers"
+==2605==
+==2605== ----------------------------------------------------------------
+==2605==
+==2605== Possible data race during write of size 8 at 0x37E2D8 by thread #11
+==2605== Locks held: none
+==2605==    at 0x113627: store (atomic_base.h:691)
+==2605==    by 0x113627: std::atomic<void*>::store(void*, std::memory_order) (atomic:443)
+==2605==    by 0x11A363: LockFreeQueue<int>::push(int const&) (LockFreeQueue.h:48)
+==2605==    by 0x1116B7: (anonymous namespace)::addNumbersProducer(unsigned long, unsigned long, QueueInterface<int>&) (tests.cpp:27)
+==2605==    by 0x11B2C6: void std::__invoke_impl<void, void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > >(std::__invoke_other, void (*&&)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long&&, unsigned long&&, std::reference_wrapper<LockFreeQueue<int> >&&) (invoke.h:60)
+==2605==    by 0x11A07C: std::__invoke_result<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > >::type std::__invoke<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > >(void (*&&)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long&&, unsigned long&&, std::reference_wrapper<LockFreeQueue<int> >&&) (invoke.h:95)
+==2605==    by 0x11EFF0: decltype (__invoke((_S_declval<0ul>)(), (_S_declval<1ul>)(), (_S_declval<2ul>)(), (_S_declval<3ul>)())) std::thread::_Invoker<std::tuple<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > > >::_M_invoke<0ul, 1ul, 2ul, 3ul>(std::_Index_tuple<0ul, 1ul, 2ul, 3ul>) (thread:234)
+==2605==    by 0x11EEE6: std::thread::_Invoker<std::tuple<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > > >::operator()() (thread:243)
+==2605==    by 0x11EE23: std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > > > >::_M_run() (thread:186)
+==2605==    by 0x511E6DE: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==2605==    by 0x4C36C26: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==2605==    by 0x4E496DA: start_thread (pthread_create.c:463)
+==2605==    by 0x572388E: clone (clone.S:95)
+==2605==
+==2605== This conflicts with a previous write of size 8 by thread #10
+==2605== Locks held: none
+==2605==    at 0x113627: store (atomic_base.h:691)
+==2605==    by 0x113627: std::atomic<void*>::store(void*, std::memory_order) (atomic:443)
+==2605==    by 0x11A363: LockFreeQueue<int>::push(int const&) (LockFreeQueue.h:48)
+==2605==    by 0x1116B7: (anonymous namespace)::addNumbersProducer(unsigned long, unsigned long, QueueInterface<int>&) (tests.cpp:27)
+==2605==    by 0x11B2C6: void std::__invoke_impl<void, void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > >(std::__invoke_other, void (*&&)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long&&, unsigned long&&, std::reference_wrapper<LockFreeQueue<int> >&&) (invoke.h:60)
+==2605==    by 0x11A07C: std::__invoke_result<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > >::type std::__invoke<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > >(void (*&&)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long&&, unsigned long&&, std::reference_wrapper<LockFreeQueue<int> >&&) (invoke.h:95)
+==2605==    by 0x11EFF0: decltype (__invoke((_S_declval<0ul>)(), (_S_declval<1ul>)(), (_S_declval<2ul>)(), (_S_declval<3ul>)())) std::thread::_Invoker<std::tuple<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > > >::_M_invoke<0ul, 1ul, 2ul, 3ul>(std::_Index_tuple<0ul, 1ul, 2ul, 3ul>) (thread:234)
+==2605==    by 0x11EEE6: std::thread::_Invoker<std::tuple<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > > >::operator()() (thread:243)
+==2605==    by 0x11EE23: std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > > > >::_M_run() (thread:186)
+==2605==  Address 0x37e2d8 is 24 bytes inside data symbol "hazard_pointers"
+==2605==
+==2605== ----------------------------------------------------------------
+==2605==
+==2605== Possible data race during read of size 8 at 0x5E004E8 by thread #11
+==2605== Locks held: none
+==2605==    at 0x11B4A3: load (atomic_base.h:713)
+==2605==    by 0x11B4A3: std::atomic<LockFreeQueue<int>::node*>::load(std::memory_order) const (atomic:452)
+==2605==    by 0x11A3D8: LockFreeQueue<int>::push(int const&) (LockFreeQueue.h:53)
+==2605==    by 0x1116B7: (anonymous namespace)::addNumbersProducer(unsigned long, unsigned long, QueueInterface<int>&) (tests.cpp:27)
+==2605==    by 0x11B2C6: void std::__invoke_impl<void, void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > >(std::__invoke_other, void (*&&)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long&&, unsigned long&&, std::reference_wrapper<LockFreeQueue<int> >&&) (invoke.h:60)
+==2605==    by 0x11A07C: std::__invoke_result<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > >::type std::__invoke<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > >(void (*&&)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long&&, unsigned long&&, std::reference_wrapper<LockFreeQueue<int> >&&) (invoke.h:95)
+==2605==    by 0x11EFF0: decltype (__invoke((_S_declval<0ul>)(), (_S_declval<1ul>)(), (_S_declval<2ul>)(), (_S_declval<3ul>)())) std::thread::_Invoker<std::tuple<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > > >::_M_invoke<0ul, 1ul, 2ul, 3ul>(std::_Index_tuple<0ul, 1ul, 2ul, 3ul>) (thread:234)
+==2605==    by 0x11EEE6: std::thread::_Invoker<std::tuple<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > > >::operator()() (thread:243)
+==2605==    by 0x11EE23: std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > > > >::_M_run() (thread:186)
+==2605==    by 0x511E6DE: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==2605==    by 0x4C36C26: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==2605==    by 0x4E496DA: start_thread (pthread_create.c:463)
+==2605==    by 0x572388E: clone (clone.S:95)
+==2605==  Address 0x5e004e8 is 8 bytes inside a block of size 16 alloc'd
+==2605==    at 0x4C3159F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==2605==    by 0x11A32D: LockFreeQueue<int>::push(int const&) (LockFreeQueue.h:43)
+==2605==    by 0x1116B7: (anonymous namespace)::addNumbersProducer(unsigned long, unsigned long, QueueInterface<int>&) (tests.cpp:27)
+==2605==    by 0x11B2C6: void std::__invoke_impl<void, void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > >(std::__invoke_other, void (*&&)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long&&, unsigned long&&, std::reference_wrapper<LockFreeQueue<int> >&&) (invoke.h:60)
+==2605==    by 0x11A07C: std::__invoke_result<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > >::type std::__invoke<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > >(void (*&&)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long&&, unsigned long&&, std::reference_wrapper<LockFreeQueue<int> >&&) (invoke.h:95)
+==2605==    by 0x11EFF0: decltype (__invoke((_S_declval<0ul>)(), (_S_declval<1ul>)(), (_S_declval<2ul>)(), (_S_declval<3ul>)())) std::thread::_Invoker<std::tuple<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > > >::_M_invoke<0ul, 1ul, 2ul, 3ul>(std::_Index_tuple<0ul, 1ul, 2ul, 3ul>) (thread:234)
+==2605==    by 0x11EEE6: std::thread::_Invoker<std::tuple<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > > >::operator()() (thread:243)
+==2605==    by 0x11EE23: std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > > > >::_M_run() (thread:186)
+==2605==    by 0x511E6DE: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==2605==    by 0x4C36C26: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==2605==    by 0x4E496DA: start_thread (pthread_create.c:463)
+==2605==    by 0x572388E: clone (clone.S:95)
+==2605==  Block was alloc'd by thread #10
+==2605==
+==2605== ----------------------------------------------------------------
+==2605==
+==2605== Possible data race during write of size 8 at 0x37E2D8 by thread #11
+==2605== Locks held: none
+==2605==    at 0x113627: store (atomic_base.h:691)
+==2605==    by 0x113627: std::atomic<void*>::store(void*, std::memory_order) (atomic:443)
+==2605==    by 0x11A48D: LockFreeQueue<int>::push(int const&) (LockFreeQueue.h:73)
+==2605==    by 0x1116B7: (anonymous namespace)::addNumbersProducer(unsigned long, unsigned long, QueueInterface<int>&) (tests.cpp:27)
+==2605==    by 0x11B2C6: void std::__invoke_impl<void, void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > >(std::__invoke_other, void (*&&)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long&&, unsigned long&&, std::reference_wrapper<LockFreeQueue<int> >&&) (invoke.h:60)
+==2605==    by 0x11A07C: std::__invoke_result<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > >::type std::__invoke<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > >(void (*&&)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long&&, unsigned long&&, std::reference_wrapper<LockFreeQueue<int> >&&) (invoke.h:95)
+==2605==    by 0x11EFF0: decltype (__invoke((_S_declval<0ul>)(), (_S_declval<1ul>)(), (_S_declval<2ul>)(), (_S_declval<3ul>)())) std::thread::_Invoker<std::tuple<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > > >::_M_invoke<0ul, 1ul, 2ul, 3ul>(std::_Index_tuple<0ul, 1ul, 2ul, 3ul>) (thread:234)
+==2605==    by 0x11EEE6: std::thread::_Invoker<std::tuple<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > > >::operator()() (thread:243)
+==2605==    by 0x11EE23: std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > > > >::_M_run() (thread:186)
+==2605==    by 0x511E6DE: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==2605==    by 0x4C36C26: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==2605==    by 0x4E496DA: start_thread (pthread_create.c:463)
+==2605==    by 0x572388E: clone (clone.S:95)
+==2605==
+==2605== This conflicts with a previous write of size 8 by thread #10
+==2605== Locks held: none
+==2605==    at 0x113627: store (atomic_base.h:691)
+==2605==    by 0x113627: std::atomic<void*>::store(void*, std::memory_order) (atomic:443)
+==2605==    by 0x11A363: LockFreeQueue<int>::push(int const&) (LockFreeQueue.h:48)
+==2605==    by 0x1116B7: (anonymous namespace)::addNumbersProducer(unsigned long, unsigned long, QueueInterface<int>&) (tests.cpp:27)
+==2605==    by 0x11B2C6: void std::__invoke_impl<void, void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > >(std::__invoke_other, void (*&&)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long&&, unsigned long&&, std::reference_wrapper<LockFreeQueue<int> >&&) (invoke.h:60)
+==2605==    by 0x11A07C: std::__invoke_result<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > >::type std::__invoke<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > >(void (*&&)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long&&, unsigned long&&, std::reference_wrapper<LockFreeQueue<int> >&&) (invoke.h:95)
+==2605==    by 0x11EFF0: decltype (__invoke((_S_declval<0ul>)(), (_S_declval<1ul>)(), (_S_declval<2ul>)(), (_S_declval<3ul>)())) std::thread::_Invoker<std::tuple<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > > >::_M_invoke<0ul, 1ul, 2ul, 3ul>(std::_Index_tuple<0ul, 1ul, 2ul, 3ul>) (thread:234)
+==2605==    by 0x11EEE6: std::thread::_Invoker<std::tuple<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > > >::operator()() (thread:243)
+==2605==    by 0x11EE23: std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > > > >::_M_run() (thread:186)
+==2605==  Address 0x37e2d8 is 24 bytes inside data symbol "hazard_pointers"
+==2605==
+==2605== ----------------------------------------------------------------
+==2605==
+==2605== Possible data race during write of size 8 at 0x37E2D0 by thread #11
+==2605== Locks held: none
+==2605==    at 0x11366D: std::atomic<std::thread::id>::store(std::thread::id, std::memory_order) (atomic:239)
+==2605==    by 0x112934: hp_owner::~hp_owner() (HazardPointers.h:52)
+==2605==    by 0x56458AE: __call_tls_dtors (cxa_thread_atexit_impl.c:155)
+==2605==    by 0x4E496E8: start_thread (pthread_create.c:470)
+==2605==    by 0x572388E: clone (clone.S:95)
+==2605==
+==2605== This conflicts with a previous write of size 8 by thread #10
+==2605== Locks held: none
+==2605==    at 0x11366D: std::atomic<std::thread::id>::store(std::thread::id, std::memory_order) (atomic:239)
+==2605==    by 0x112934: hp_owner::~hp_owner() (HazardPointers.h:52)
+==2605==    by 0x56458AE: __call_tls_dtors (cxa_thread_atexit_impl.c:155)
+==2605==    by 0x4E496E8: start_thread (pthread_create.c:470)
+==2605==    by 0x572388E: clone (clone.S:95)
+==2605==  Address 0x37e2d0 is 16 bytes inside data symbol "hazard_pointers"
+==2605==
+==2605== ---Thread-Announcement------------------------------------------
+==2605==
+==2605== Thread #14 was created
+==2605==    at 0x572387E: clone (clone.S:71)
+==2605==    by 0x4E49EC4: create_thread (createthread.c:100)
+==2605==    by 0x4E49EC4: pthread_create@@GLIBC_2.2.5 (pthread_create.c:797)
+==2605==    by 0x4C36A27: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==2605==    by 0x511E994: std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==2605==    by 0x11A157: std::thread::thread<void (&)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long&, unsigned long&, std::reference_wrapper<LockFreeQueue<int> > >(void (&)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long&, unsigned long&, std::reference_wrapper<LockFreeQueue<int> >&&) (thread:126)
+==2605==    by 0x118B04: gtest_case_ConcurrentQueueTest_::MPMC<LockFreeQueue<int> >::TestBody() (tests.cpp:94)
+==2605==    by 0x148CE4: void testing::internal::HandleSehExceptionsInMethodIfSupported<testing::Test, void>(testing::Test*, void (testing::Test::*)(), char const*) (in /home/vizka/CLionProjects/ACSProject/cmake-build-debug/tests)
+==2605==    by 0x142E92: void testing::internal::HandleExceptionsInMethodIfSupported<testing::Test, void>(testing::Test*, void (testing::Test::*)(), char const*) (in /home/vizka/CLionProjects/ACSProject/cmake-build-debug/tests)
+==2605==    by 0x126FC9: testing::Test::Run() (in /home/vizka/CLionProjects/ACSProject/cmake-build-debug/tests)
+==2605==    by 0x1278FF: testing::TestInfo::Run() (in /home/vizka/CLionProjects/ACSProject/cmake-build-debug/tests)
+==2605==    by 0x127F89: testing::TestCase::Run() (in /home/vizka/CLionProjects/ACSProject/cmake-build-debug/tests)
+==2605==    by 0x12EE55: testing::internal::UnitTestImpl::RunAllTests() (in /home/vizka/CLionProjects/ACSProject/cmake-build-debug/tests)
+==2605==
+==2605== ---Thread-Announcement------------------------------------------
+==2605==
+==2605== Thread #13 was created
+==2605==    at 0x572387E: clone (clone.S:71)
+==2605==    by 0x4E49EC4: create_thread (createthread.c:100)
+==2605==    by 0x4E49EC4: pthread_create@@GLIBC_2.2.5 (pthread_create.c:797)
+==2605==    by 0x4C36A27: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==2605==    by 0x511E994: std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==2605==    by 0x11A157: std::thread::thread<void (&)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long&, unsigned long&, std::reference_wrapper<LockFreeQueue<int> > >(void (&)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long&, unsigned long&, std::reference_wrapper<LockFreeQueue<int> >&&) (thread:126)
+==2605==    by 0x118A72: gtest_case_ConcurrentQueueTest_::MPMC<LockFreeQueue<int> >::TestBody() (tests.cpp:83)
+==2605==    by 0x148CE4: void testing::internal::HandleSehExceptionsInMethodIfSupported<testing::Test, void>(testing::Test*, void (testing::Test::*)(), char const*) (in /home/vizka/CLionProjects/ACSProject/cmake-build-debug/tests)
+==2605==    by 0x142E92: void testing::internal::HandleExceptionsInMethodIfSupported<testing::Test, void>(testing::Test*, void (testing::Test::*)(), char const*) (in /home/vizka/CLionProjects/ACSProject/cmake-build-debug/tests)
+==2605==    by 0x126FC9: testing::Test::Run() (in /home/vizka/CLionProjects/ACSProject/cmake-build-debug/tests)
+==2605==    by 0x1278FF: testing::TestInfo::Run() (in /home/vizka/CLionProjects/ACSProject/cmake-build-debug/tests)
+==2605==    by 0x127F89: testing::TestCase::Run() (in /home/vizka/CLionProjects/ACSProject/cmake-build-debug/tests)
+==2605==    by 0x12EE55: testing::internal::UnitTestImpl::RunAllTests() (in /home/vizka/CLionProjects/ACSProject/cmake-build-debug/tests)
+==2605==
+==2605== ----------------------------------------------------------------
+==2605==
+==2605== Possible data race during write of size 8 at 0x37E2D8 by thread #14
+==2605== Locks held: none
+==2605==    at 0x113627: store (atomic_base.h:691)
+==2605==    by 0x113627: std::atomic<void*>::store(void*, std::memory_order) (atomic:443)
+==2605==    by 0x11AA82: LockFreeQueue<int>::pop(int&) (LockFreeQueue.h:87)
+==2605==    by 0x111752: (anonymous namespace)::addNumbersConsumer(unsigned long, unsigned long, QueueInterface<int>&) (tests.cpp:38)
+==2605==    by 0x11B2C6: void std::__invoke_impl<void, void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > >(std::__invoke_other, void (*&&)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long&&, unsigned long&&, std::reference_wrapper<LockFreeQueue<int> >&&) (invoke.h:60)
+==2605==    by 0x11A07C: std::__invoke_result<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > >::type std::__invoke<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > >(void (*&&)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long&&, unsigned long&&, std::reference_wrapper<LockFreeQueue<int> >&&) (invoke.h:95)
+==2605==    by 0x11EFF0: decltype (__invoke((_S_declval<0ul>)(), (_S_declval<1ul>)(), (_S_declval<2ul>)(), (_S_declval<3ul>)())) std::thread::_Invoker<std::tuple<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > > >::_M_invoke<0ul, 1ul, 2ul, 3ul>(std::_Index_tuple<0ul, 1ul, 2ul, 3ul>) (thread:234)
+==2605==    by 0x11EEE6: std::thread::_Invoker<std::tuple<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > > >::operator()() (thread:243)
+==2605==    by 0x11EE23: std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > > > >::_M_run() (thread:186)
+==2605==    by 0x511E6DE: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==2605==    by 0x4C36C26: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==2605==    by 0x4E496DA: start_thread (pthread_create.c:463)
+==2605==    by 0x572388E: clone (clone.S:95)
+==2605==
+==2605== This conflicts with a previous write of size 8 by thread #13
+==2605== Locks held: none
+==2605==    at 0x113627: store (atomic_base.h:691)
+==2605==    by 0x113627: std::atomic<void*>::store(void*, std::memory_order) (atomic:443)
+==2605==    by 0x11A363: LockFreeQueue<int>::push(int const&) (LockFreeQueue.h:48)
+==2605==    by 0x1116B7: (anonymous namespace)::addNumbersProducer(unsigned long, unsigned long, QueueInterface<int>&) (tests.cpp:27)
+==2605==    by 0x11B2C6: void std::__invoke_impl<void, void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > >(std::__invoke_other, void (*&&)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long&&, unsigned long&&, std::reference_wrapper<LockFreeQueue<int> >&&) (invoke.h:60)
+==2605==    by 0x11A07C: std::__invoke_result<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > >::type std::__invoke<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > >(void (*&&)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long&&, unsigned long&&, std::reference_wrapper<LockFreeQueue<int> >&&) (invoke.h:95)
+==2605==    by 0x11EFF0: decltype (__invoke((_S_declval<0ul>)(), (_S_declval<1ul>)(), (_S_declval<2ul>)(), (_S_declval<3ul>)())) std::thread::_Invoker<std::tuple<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > > >::_M_invoke<0ul, 1ul, 2ul, 3ul>(std::_Index_tuple<0ul, 1ul, 2ul, 3ul>) (thread:234)
+==2605==    by 0x11EEE6: std::thread::_Invoker<std::tuple<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > > >::operator()() (thread:243)
+==2605==    by 0x11EE23: std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > > > >::_M_run() (thread:186)
+==2605==  Address 0x37e2d8 is 24 bytes inside data symbol "hazard_pointers"
+==2605==
+==2605== ----------------------------------------------------------------
+==2605==
+==2605== Possible data race during read of size 4 at 0x5DA4E90 by thread #14
+==2605== Locks held: none
+==2605==    at 0x11ACB6: LockFreeQueue<int>::pop(int&) (LockFreeQueue.h:143)
+==2605==    by 0x111752: (anonymous namespace)::addNumbersConsumer(unsigned long, unsigned long, QueueInterface<int>&) (tests.cpp:38)
+==2605==    by 0x11B2C6: void std::__invoke_impl<void, void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > >(std::__invoke_other, void (*&&)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long&&, unsigned long&&, std::reference_wrapper<LockFreeQueue<int> >&&) (invoke.h:60)
+==2605==    by 0x11A07C: std::__invoke_result<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > >::type std::__invoke<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > >(void (*&&)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long&&, unsigned long&&, std::reference_wrapper<LockFreeQueue<int> >&&) (invoke.h:95)
+==2605==    by 0x11EFF0: decltype (__invoke((_S_declval<0ul>)(), (_S_declval<1ul>)(), (_S_declval<2ul>)(), (_S_declval<3ul>)())) std::thread::_Invoker<std::tuple<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > > >::_M_invoke<0ul, 1ul, 2ul, 3ul>(std::_Index_tuple<0ul, 1ul, 2ul, 3ul>) (thread:234)
+==2605==    by 0x11EEE6: std::thread::_Invoker<std::tuple<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > > >::operator()() (thread:243)
+==2605==    by 0x11EE23: std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > > > >::_M_run() (thread:186)
+==2605==    by 0x511E6DE: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==2605==    by 0x4C36C26: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==2605==    by 0x4E496DA: start_thread (pthread_create.c:463)
+==2605==    by 0x572388E: clone (clone.S:95)
+==2605==  Address 0x5da4e90 is 0 bytes inside a block of size 16 alloc'd
+==2605==    at 0x4C3159F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==2605==    by 0x11A32D: LockFreeQueue<int>::push(int const&) (LockFreeQueue.h:43)
+==2605==    by 0x1116B7: (anonymous namespace)::addNumbersProducer(unsigned long, unsigned long, QueueInterface<int>&) (tests.cpp:27)
+==2605==    by 0x11B2C6: void std::__invoke_impl<void, void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > >(std::__invoke_other, void (*&&)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long&&, unsigned long&&, std::reference_wrapper<LockFreeQueue<int> >&&) (invoke.h:60)
+==2605==    by 0x11A07C: std::__invoke_result<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > >::type std::__invoke<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > >(void (*&&)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long&&, unsigned long&&, std::reference_wrapper<LockFreeQueue<int> >&&) (invoke.h:95)
+==2605==    by 0x11EFF0: decltype (__invoke((_S_declval<0ul>)(), (_S_declval<1ul>)(), (_S_declval<2ul>)(), (_S_declval<3ul>)())) std::thread::_Invoker<std::tuple<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > > >::_M_invoke<0ul, 1ul, 2ul, 3ul>(std::_Index_tuple<0ul, 1ul, 2ul, 3ul>) (thread:234)
+==2605==    by 0x11EEE6: std::thread::_Invoker<std::tuple<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > > >::operator()() (thread:243)
+==2605==    by 0x11EE23: std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > > > >::_M_run() (thread:186)
+==2605==    by 0x511E6DE: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==2605==    by 0x4C36C26: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==2605==    by 0x4E496DA: start_thread (pthread_create.c:463)
+==2605==    by 0x572388E: clone (clone.S:95)
+==2605==  Block was alloc'd by thread #10
+==2605==
+==2605== ----------------------------------------------------------------
+==2605==
+==2605== Possible data race during read of size 8 at 0x5DA4E98 by thread #14
+==2605== Locks held: none
+==2605==    at 0x11B4A3: load (atomic_base.h:713)
+==2605==    by 0x11B4A3: std::atomic<LockFreeQueue<int>::node*>::load(std::memory_order) const (atomic:452)
+==2605==    by 0x11AAE6: LockFreeQueue<int>::pop(int&) (LockFreeQueue.h:93)
+==2605==    by 0x111752: (anonymous namespace)::addNumbersConsumer(unsigned long, unsigned long, QueueInterface<int>&) (tests.cpp:38)
+==2605==    by 0x11B2C6: void std::__invoke_impl<void, void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > >(std::__invoke_other, void (*&&)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long&&, unsigned long&&, std::reference_wrapper<LockFreeQueue<int> >&&) (invoke.h:60)
+==2605==    by 0x11A07C: std::__invoke_result<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > >::type std::__invoke<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > >(void (*&&)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long&&, unsigned long&&, std::reference_wrapper<LockFreeQueue<int> >&&) (invoke.h:95)
+==2605==    by 0x11EFF0: decltype (__invoke((_S_declval<0ul>)(), (_S_declval<1ul>)(), (_S_declval<2ul>)(), (_S_declval<3ul>)())) std::thread::_Invoker<std::tuple<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > > >::_M_invoke<0ul, 1ul, 2ul, 3ul>(std::_Index_tuple<0ul, 1ul, 2ul, 3ul>) (thread:234)
+==2605==    by 0x11EEE6: std::thread::_Invoker<std::tuple<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > > >::operator()() (thread:243)
+==2605==    by 0x11EE23: std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > > > >::_M_run() (thread:186)
+==2605==    by 0x511E6DE: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==2605==    by 0x4C36C26: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==2605==    by 0x4E496DA: start_thread (pthread_create.c:463)
+==2605==    by 0x572388E: clone (clone.S:95)
+==2605==  Address 0x5da4e98 is 8 bytes inside a block of size 16 alloc'd
+==2605==    at 0x4C3159F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==2605==    by 0x11A32D: LockFreeQueue<int>::push(int const&) (LockFreeQueue.h:43)
+==2605==    by 0x1116B7: (anonymous namespace)::addNumbersProducer(unsigned long, unsigned long, QueueInterface<int>&) (tests.cpp:27)
+==2605==    by 0x11B2C6: void std::__invoke_impl<void, void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > >(std::__invoke_other, void (*&&)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long&&, unsigned long&&, std::reference_wrapper<LockFreeQueue<int> >&&) (invoke.h:60)
+==2605==    by 0x11A07C: std::__invoke_result<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > >::type std::__invoke<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > >(void (*&&)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long&&, unsigned long&&, std::reference_wrapper<LockFreeQueue<int> >&&) (invoke.h:95)
+==2605==    by 0x11EFF0: decltype (__invoke((_S_declval<0ul>)(), (_S_declval<1ul>)(), (_S_declval<2ul>)(), (_S_declval<3ul>)())) std::thread::_Invoker<std::tuple<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > > >::_M_invoke<0ul, 1ul, 2ul, 3ul>(std::_Index_tuple<0ul, 1ul, 2ul, 3ul>) (thread:234)
+==2605==    by 0x11EEE6: std::thread::_Invoker<std::tuple<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > > >::operator()() (thread:243)
+==2605==    by 0x11EE23: std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > > > >::_M_run() (thread:186)
+==2605==    by 0x511E6DE: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==2605==    by 0x4C36C26: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==2605==    by 0x4E496DA: start_thread (pthread_create.c:463)
+==2605==    by 0x572388E: clone (clone.S:95)
+==2605==  Block was alloc'd by thread #10
+==2605==
+==2605== ---Thread-Announcement------------------------------------------
+==2605==
+==2605== Thread #2 was created
+==2605==    at 0x572387E: clone (clone.S:71)
+==2605==    by 0x4E49EC4: create_thread (createthread.c:100)
+==2605==    by 0x4E49EC4: pthread_create@@GLIBC_2.2.5 (pthread_create.c:797)
+==2605==    by 0x4C36A27: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==2605==    by 0x511E994: std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==2605==    by 0x11A82D: std::thread::thread<void (&)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long&, unsigned long&, std::reference_wrapper<BlockingQueue<int> > >(void (&)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long&, unsigned long&, std::reference_wrapper<BlockingQueue<int> >&&) (thread:126)
+==2605==    by 0x11907B: gtest_case_ConcurrentQueueTest_::MPMC<BlockingQueue<int> >::TestBody() (tests.cpp:83)
+==2605==    by 0x148CE4: void testing::internal::HandleSehExceptionsInMethodIfSupported<testing::Test, void>(testing::Test*, void (testing::Test::*)(), char const*) (in /home/vizka/CLionProjects/ACSProject/cmake-build-debug/tests)
+==2605==    by 0x142E92: void testing::internal::HandleExceptionsInMethodIfSupported<testing::Test, void>(testing::Test*, void (testing::Test::*)(), char const*) (in /home/vizka/CLionProjects/ACSProject/cmake-build-debug/tests)
+==2605==    by 0x126FC9: testing::Test::Run() (in /home/vizka/CLionProjects/ACSProject/cmake-build-debug/tests)
+==2605==    by 0x1278FF: testing::TestInfo::Run() (in /home/vizka/CLionProjects/ACSProject/cmake-build-debug/tests)
+==2605==    by 0x127F89: testing::TestCase::Run() (in /home/vizka/CLionProjects/ACSProject/cmake-build-debug/tests)
+==2605==    by 0x12EE55: testing::internal::UnitTestImpl::RunAllTests() (in /home/vizka/CLionProjects/ACSProject/cmake-build-debug/tests)
+==2605==
+==2605== ----------------------------------------------------------------
+==2605==
+==2605==  Lock at 0x1FFEFFF4F8 was first observed
+==2605==    at 0x4C3403C: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==2605==    by 0x111409: __gthread_mutex_lock(pthread_mutex_t*) (gthr-default.h:748)
+==2605==    by 0x112479: std::mutex::lock() (std_mutex.h:103)
+==2605==    by 0x1134BF: std::lock_guard<std::mutex>::lock_guard(std::mutex&) (std_mutex.h:162)
+==2605==    by 0x11A8BA: BlockingQueue<int>::push(int const&) (BlockingQueue.h:24)
+==2605==    by 0x11992F: gtest_case_ConcurrentQueueTest_::ShouldAdd<BlockingQueue<int> >::TestBody() (tests.cpp:55)
+==2605==    by 0x148CE4: void testing::internal::HandleSehExceptionsInMethodIfSupported<testing::Test, void>(testing::Test*, void (testing::Test::*)(), char const*) (in /home/vizka/CLionProjects/ACSProject/cmake-build-debug/tests)
+==2605==    by 0x142E92: void testing::internal::HandleExceptionsInMethodIfSupported<testing::Test, void>(testing::Test*, void (testing::Test::*)(), char const*) (in /home/vizka/CLionProjects/ACSProject/cmake-build-debug/tests)
+==2605==    by 0x126FC9: testing::Test::Run() (in /home/vizka/CLionProjects/ACSProject/cmake-build-debug/tests)
+==2605==    by 0x1278FF: testing::TestInfo::Run() (in /home/vizka/CLionProjects/ACSProject/cmake-build-debug/tests)
+==2605==    by 0x127F89: testing::TestCase::Run() (in /home/vizka/CLionProjects/ACSProject/cmake-build-debug/tests)
+==2605==    by 0x12EE55: testing::internal::UnitTestImpl::RunAllTests() (in /home/vizka/CLionProjects/ACSProject/cmake-build-debug/tests)
+==2605==  Address 0x1ffefff4f8 is on thread #1's stack
+==2605==  in frame #4, created by gtest_case_ConcurrentQueueTest_::MPMC<LockFreeQueue<int> >::TestBody() (tests.cpp:64)
+==2605==
+==2605== Possible data race during read of size 8 at 0x5DA7548 by thread #14
+==2605== Locks held: none
+==2605==    at 0x11BE4D: load (atomic_base.h:713)
+==2605==    by 0x11BE4D: std::__atomic_base<LockFreeQueue<int>::node*>::operator LockFreeQueue<int>::node*() const (atomic_base.h:590)
+==2605==    by 0x11AE87: std::atomic<LockFreeQueue<int>::node*>::operator LockFreeQueue<int>::node*() const (atomic:367)
+==2605==    by 0x11AB4C: LockFreeQueue<int>::pop(int&) (LockFreeQueue.h:100)
+==2605==    by 0x111752: (anonymous namespace)::addNumbersConsumer(unsigned long, unsigned long, QueueInterface<int>&) (tests.cpp:38)
+==2605==    by 0x11B2C6: void std::__invoke_impl<void, void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > >(std::__invoke_other, void (*&&)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long&&, unsigned long&&, std::reference_wrapper<LockFreeQueue<int> >&&) (invoke.h:60)
+==2605==    by 0x11A07C: std::__invoke_result<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > >::type std::__invoke<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > >(void (*&&)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long&&, unsigned long&&, std::reference_wrapper<LockFreeQueue<int> >&&) (invoke.h:95)
+==2605==    by 0x11EFF0: decltype (__invoke((_S_declval<0ul>)(), (_S_declval<1ul>)(), (_S_declval<2ul>)(), (_S_declval<3ul>)())) std::thread::_Invoker<std::tuple<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > > >::_M_invoke<0ul, 1ul, 2ul, 3ul>(std::_Index_tuple<0ul, 1ul, 2ul, 3ul>) (thread:234)
+==2605==    by 0x11EEE6: std::thread::_Invoker<std::tuple<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > > >::operator()() (thread:243)
+==2605==    by 0x11EE23: std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > > > >::_M_run() (thread:186)
+==2605==    by 0x511E6DE: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==2605==    by 0x4C36C26: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==2605==    by 0x4E496DA: start_thread (pthread_create.c:463)
+==2605==
+==2605== This conflicts with a previous write of size 4 by thread #2
+==2605== Locks held: 1, at address 0x1FFEFFF4F8
+==2605==    at 0x11DC26: void __gnu_cxx::new_allocator<int>::construct<int, int const&>(int*, int const&) (new_allocator.h:136)
+==2605==    by 0x11D532: void std::allocator_traits<std::allocator<int> >::construct<int, int const&>(std::allocator<int>&, int*, int const&) (alloc_traits.h:475)
+==2605==    by 0x11CAFF: std::deque<int, std::allocator<int> >::push_back(int const&) (stl_deque.h:1547)
+==2605==    by 0x11BC18: std::queue<int, std::deque<int, std::allocator<int> > >::push(int const&) (stl_queue.h:252)
+==2605==    by 0x11A8D9: BlockingQueue<int>::push(int const&) (BlockingQueue.h:25)
+==2605==    by 0x1116B7: (anonymous namespace)::addNumbersProducer(unsigned long, unsigned long, QueueInterface<int>&) (tests.cpp:27)
+==2605==    by 0x11BB84: void std::__invoke_impl<void, void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<BlockingQueue<int> > >(std::__invoke_other, void (*&&)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long&&, unsigned long&&, std::reference_wrapper<BlockingQueue<int> >&&) (invoke.h:60)
+==2605==    by 0x11A752: std::__invoke_result<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<BlockingQueue<int> > >::type std::__invoke<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<BlockingQueue<int> > >(void (*&&)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long&&, unsigned long&&, std::reference_wrapper<BlockingQueue<int> >&&) (invoke.h:95)
+==2605==  Address 0x5da7548 is 8 bytes inside a block of size 16 alloc'd
+==2605==    at 0x4C3159F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==2605==    by 0x11A32D: LockFreeQueue<int>::push(int const&) (LockFreeQueue.h:43)
+==2605==    by 0x1116B7: (anonymous namespace)::addNumbersProducer(unsigned long, unsigned long, QueueInterface<int>&) (tests.cpp:27)
+==2605==    by 0x11B2C6: void std::__invoke_impl<void, void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > >(std::__invoke_other, void (*&&)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long&&, unsigned long&&, std::reference_wrapper<LockFreeQueue<int> >&&) (invoke.h:60)
+==2605==    by 0x11A07C: std::__invoke_result<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > >::type std::__invoke<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > >(void (*&&)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long&&, unsigned long&&, std::reference_wrapper<LockFreeQueue<int> >&&) (invoke.h:95)
+==2605==    by 0x11EFF0: decltype (__invoke((_S_declval<0ul>)(), (_S_declval<1ul>)(), (_S_declval<2ul>)(), (_S_declval<3ul>)())) std::thread::_Invoker<std::tuple<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > > >::_M_invoke<0ul, 1ul, 2ul, 3ul>(std::_Index_tuple<0ul, 1ul, 2ul, 3ul>) (thread:234)
+==2605==    by 0x11EEE6: std::thread::_Invoker<std::tuple<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > > >::operator()() (thread:243)
+==2605==    by 0x11EE23: std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > > > >::_M_run() (thread:186)
+==2605==    by 0x511E6DE: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==2605==    by 0x4C36C26: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==2605==    by 0x4E496DA: start_thread (pthread_create.c:463)
+==2605==    by 0x572388E: clone (clone.S:95)
+==2605==  Block was alloc'd by thread #10
+==2605==
+==2605== ----------------------------------------------------------------
+==2605==
+==2605== Possible data race during write of size 8 at 0x37E2D8 by thread #14
+==2605== Locks held: none
+==2605==    at 0x113627: store (atomic_base.h:691)
+==2605==    by 0x113627: std::atomic<void*>::store(void*, std::memory_order) (atomic:443)
+==2605==    by 0x11AB23: LockFreeQueue<int>::pop(int&) (LockFreeQueue.h:98)
+==2605==    by 0x111752: (anonymous namespace)::addNumbersConsumer(unsigned long, unsigned long, QueueInterface<int>&) (tests.cpp:38)
+==2605==    by 0x11B2C6: void std::__invoke_impl<void, void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > >(std::__invoke_other, void (*&&)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long&&, unsigned long&&, std::reference_wrapper<LockFreeQueue<int> >&&) (invoke.h:60)
+==2605==    by 0x11A07C: std::__invoke_result<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > >::type std::__invoke<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > >(void (*&&)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long&&, unsigned long&&, std::reference_wrapper<LockFreeQueue<int> >&&) (invoke.h:95)
+==2605==    by 0x11EFF0: decltype (__invoke((_S_declval<0ul>)(), (_S_declval<1ul>)(), (_S_declval<2ul>)(), (_S_declval<3ul>)())) std::thread::_Invoker<std::tuple<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > > >::_M_invoke<0ul, 1ul, 2ul, 3ul>(std::_Index_tuple<0ul, 1ul, 2ul, 3ul>) (thread:234)
+==2605==    by 0x11EEE6: std::thread::_Invoker<std::tuple<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > > >::operator()() (thread:243)
+==2605==    by 0x11EE23: std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > > > >::_M_run() (thread:186)
+==2605==    by 0x511E6DE: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==2605==    by 0x4C36C26: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==2605==    by 0x4E496DA: start_thread (pthread_create.c:463)
+==2605==    by 0x572388E: clone (clone.S:95)
+==2605==
+==2605== This conflicts with a previous write of size 8 by thread #13
+==2605== Locks held: none
+==2605==    at 0x113627: store (atomic_base.h:691)
+==2605==    by 0x113627: std::atomic<void*>::store(void*, std::memory_order) (atomic:443)
+==2605==    by 0x11A363: LockFreeQueue<int>::push(int const&) (LockFreeQueue.h:48)
+==2605==    by 0x1116B7: (anonymous namespace)::addNumbersProducer(unsigned long, unsigned long, QueueInterface<int>&) (tests.cpp:27)
+==2605==    by 0x11B2C6: void std::__invoke_impl<void, void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > >(std::__invoke_other, void (*&&)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long&&, unsigned long&&, std::reference_wrapper<LockFreeQueue<int> >&&) (invoke.h:60)
+==2605==    by 0x11A07C: std::__invoke_result<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > >::type std::__invoke<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > >(void (*&&)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long&&, unsigned long&&, std::reference_wrapper<LockFreeQueue<int> >&&) (invoke.h:95)
+==2605==    by 0x11EFF0: decltype (__invoke((_S_declval<0ul>)(), (_S_declval<1ul>)(), (_S_declval<2ul>)(), (_S_declval<3ul>)())) std::thread::_Invoker<std::tuple<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > > >::_M_invoke<0ul, 1ul, 2ul, 3ul>(std::_Index_tuple<0ul, 1ul, 2ul, 3ul>) (thread:234)
+==2605==    by 0x11EEE6: std::thread::_Invoker<std::tuple<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > > >::operator()() (thread:243)
+==2605==    by 0x11EE23: std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > > > >::_M_run() (thread:186)
+==2605==  Address 0x37e2d8 is 24 bytes inside data symbol "hazard_pointers"
+==2605==
+==2605== ----------------------------------------------------------------
+==2605==
+==2605== Possible data race during read of size 8 at 0x37E2D8 by thread #14
+==2605== Locks held: none
+==2605==    at 0x1136AF: load (atomic_base.h:713)
+==2605==    by 0x1136AF: std::atomic<void*>::load(std::memory_order) const (atomic:452)
+==2605==    by 0x111500: outstanding_hazard_pointers_for(void*) (HazardPointers.h:65)
+==2605==    by 0x11AC89: LockFreeQueue<int>::pop(int&) (LockFreeQueue.h:131)
+==2605==    by 0x111752: (anonymous namespace)::addNumbersConsumer(unsigned long, unsigned long, QueueInterface<int>&) (tests.cpp:38)
+==2605==    by 0x11B2C6: void std::__invoke_impl<void, void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > >(std::__invoke_other, void (*&&)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long&&, unsigned long&&, std::reference_wrapper<LockFreeQueue<int> >&&) (invoke.h:60)
+==2605==    by 0x11A07C: std::__invoke_result<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > >::type std::__invoke<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > >(void (*&&)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long&&, unsigned long&&, std::reference_wrapper<LockFreeQueue<int> >&&) (invoke.h:95)
+==2605==    by 0x11EFF0: decltype (__invoke((_S_declval<0ul>)(), (_S_declval<1ul>)(), (_S_declval<2ul>)(), (_S_declval<3ul>)())) std::thread::_Invoker<std::tuple<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > > >::_M_invoke<0ul, 1ul, 2ul, 3ul>(std::_Index_tuple<0ul, 1ul, 2ul, 3ul>) (thread:234)
+==2605==    by 0x11EEE6: std::thread::_Invoker<std::tuple<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > > >::operator()() (thread:243)
+==2605==    by 0x11EE23: std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > > > >::_M_run() (thread:186)
+==2605==    by 0x511E6DE: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==2605==    by 0x4C36C26: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==2605==    by 0x4E496DA: start_thread (pthread_create.c:463)
+==2605==
+==2605== This conflicts with a previous write of size 8 by thread #13
+==2605== Locks held: none
+==2605==    at 0x113627: store (atomic_base.h:691)
+==2605==    by 0x113627: std::atomic<void*>::store(void*, std::memory_order) (atomic:443)
+==2605==    by 0x11A363: LockFreeQueue<int>::push(int const&) (LockFreeQueue.h:48)
+==2605==    by 0x1116B7: (anonymous namespace)::addNumbersProducer(unsigned long, unsigned long, QueueInterface<int>&) (tests.cpp:27)
+==2605==    by 0x11B2C6: void std::__invoke_impl<void, void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > >(std::__invoke_other, void (*&&)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long&&, unsigned long&&, std::reference_wrapper<LockFreeQueue<int> >&&) (invoke.h:60)
+==2605==    by 0x11A07C: std::__invoke_result<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > >::type std::__invoke<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > >(void (*&&)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long&&, unsigned long&&, std::reference_wrapper<LockFreeQueue<int> >&&) (invoke.h:95)
+==2605==    by 0x11EFF0: decltype (__invoke((_S_declval<0ul>)(), (_S_declval<1ul>)(), (_S_declval<2ul>)(), (_S_declval<3ul>)())) std::thread::_Invoker<std::tuple<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > > >::_M_invoke<0ul, 1ul, 2ul, 3ul>(std::_Index_tuple<0ul, 1ul, 2ul, 3ul>) (thread:234)
+==2605==    by 0x11EEE6: std::thread::_Invoker<std::tuple<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > > >::operator()() (thread:243)
+==2605==    by 0x11EE23: std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)(unsigned long, unsigned long, QueueInterface<int>&), unsigned long, unsigned long, std::reference_wrapper<LockFreeQueue<int> > > > >::_M_run() (thread:186)
+==2605==  Address 0x37e2d8 is 24 bytes inside data symbol "hazard_pointers"
+==2605==
+11999 [       OK ] PlaceholderName/ConcurrentQueueTest/1.MPMC (648 ms)
+[----------] 2 tests from PlaceholderName/ConcurrentQueueTest/1 (658 ms total)
+
+[----------] Global test environment tear-down
+[==========] 4 tests from 2 test cases ran. (1510 ms total)
+[  PASSED  ] 4 tests.
+==2605==
+==2605== For counts of detected and suppressed errors, rerun with: -v
+==2605== Use --history-level=approx or =none to gain increased speed, at
+==2605== the cost of reduced accuracy of conflicting-access information
+==2605== ERROR SUMMARY: 24219 errors from 11 contexts (suppressed: 63109 from 18)
