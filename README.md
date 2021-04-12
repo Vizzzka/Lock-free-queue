@@ -1,7 +1,7 @@
 # Lock-free-queue
 C++ library 
 
-<p>The aim of the project is to implement a **lock-free queue** based on the </p> [Michael-Scott algorithm  algorithm](https://www.cs.rochester.edu/~scott/papers/1996_PODC_queues.pdf).
+The aim of the project is to implement a **lock-free queue** based on the [Michael-Scott algorithm  algorithm](https://www.cs.rochester.edu/~scott/papers/1996_PODC_queues.pdf).
 <p>
 This is a linked-list-based non-blocking unbounded queue.
 Blocking queues allow a slower process to prevent a faster process from completing an operation on a shared structure.
